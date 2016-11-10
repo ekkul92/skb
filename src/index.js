@@ -42,6 +42,13 @@ app.get('/task2B', (req, res) => {
     
 });
 
+
+app.get('/task2C', (req, res) => {
+    var reg = new RegExp('@?(https?:)?(\/\/)?(([telegram|(www.)?vk(.com)?|vkontakte|xn-|medium])[^\/]*\/)?@?([a-z0-9.,_]*)', 'i');
+    const username = req.query.username.match(reg);
+   res.send('@' + username[5]);
+});
+
 app.listen(3000, () => {
   console.log('Your app listening on port 3000!');
 });
